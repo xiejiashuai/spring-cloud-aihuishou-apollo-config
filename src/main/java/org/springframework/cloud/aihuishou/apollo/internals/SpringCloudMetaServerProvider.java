@@ -3,8 +3,6 @@ package org.springframework.cloud.aihuishou.apollo.internals;
 import com.ctrip.framework.apollo.core.enums.Env;
 import com.ctrip.framework.apollo.core.spi.MetaServerProvider;
 import com.google.common.collect.Lists;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.boot.env.PropertySourceLoader;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
@@ -13,13 +11,13 @@ import org.springframework.core.env.PropertySource;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.SpringFactoriesLoader;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.ctrip.framework.apollo.core.internals.LegacyMetaServerProvider.ORDER;
 import static org.springframework.cloud.aihuishou.apollo.ApolloProperties.APOLLO_PROPERTIES_PREFIX;
 import static org.springframework.cloud.aihuishou.apollo.ApolloProperties.META_SERVER_ADDR;
 
@@ -31,9 +29,7 @@ import static org.springframework.cloud.aihuishou.apollo.ApolloProperties.META_S
  */
 public class SpringCloudMetaServerProvider implements MetaServerProvider {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SpringCloudMetaServerProvider.class);
-
-    private static final int ORDER = MetaServerProvider.HIGHEST_PRECEDENCE + 5;
+    private static final int DEFAULT_ORDER = ORDER + 1;
 
     private static final String DEFAULT_NAMES = "bootstrap.";
 
@@ -84,7 +80,7 @@ public class SpringCloudMetaServerProvider implements MetaServerProvider {
 
     @Override
     public int getOrder() {
-        return ORDER;
+        return DEFAULT_ORDER;
     }
 
 }

@@ -39,12 +39,13 @@ public class ApolloPropertySourceLocator implements PropertySourceLocator,Ordere
 
         ConfigurableEnvironment configurableEnvironment = (ConfigurableEnvironment) environment;
 
-        initializeSystemProperty(environment);
-
         if (configurableEnvironment.getPropertySources().contains(PropertySourcesConstants.APOLLO_BOOTSTRAP_PROPERTY_SOURCE_NAME)) {
             //already initialized
             return null;
         }
+
+        initializeSystemProperty(environment);
+
 
         List<String> namespaces = apolloProperties.getNamespaces();
 
