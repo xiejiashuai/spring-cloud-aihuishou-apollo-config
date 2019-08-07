@@ -1,4 +1,19 @@
-package org.springframework.cloud.aihuishou.apollo.locator;
+/*
+ * Copyright (C) 2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.framework.cloud.apollo.locator;
 
 import com.ctrip.framework.apollo.spring.config.ConfigPropertySource;
 import org.springframework.beans.BeansException;
@@ -19,7 +34,7 @@ import static com.ctrip.framework.apollo.spring.config.PropertySourcesConstants.
 /**
  * Apollo Property Source
  *
- * @author jiashuai.xie
+ * @author <a href="mailto:jiashuai.xie01@gmail.com">xiejiashuai</a>
  * @since 2019/1/8 15:30 1.0.0.RELEASE
  */
 public class ApolloPropertySourceExtractor implements ApplicationContextAware {
@@ -55,16 +70,10 @@ public class ApolloPropertySourceExtractor implements ApplicationContextAware {
                         });
                         propsMap.put(configPropertySource.getName(), map);
                     }
-
                 });
-
             });
-
         }
-
-
         return propsMap;
-
     }
 
     public Map<String, Object> getByPropertyName(String propertyName) {
@@ -90,18 +99,11 @@ public class ApolloPropertySourceExtractor implements ApplicationContextAware {
                         if (configPropertySource.containsProperty(propertyName)) {
                             propsMap.put(configPropertySource.getName(), configPropertySource.getProperty(propertyName));
                         }
-
                     }
-
                 });
-
             });
-
         }
-
         return propsMap;
-
-
     }
 
     @Override

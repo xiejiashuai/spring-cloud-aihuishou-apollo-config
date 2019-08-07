@@ -1,5 +1,5 @@
 org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-org.springframework.cloud.aihuishou.apollo.ApolloConfigBootstrapConfiguration
+org.framework.cloud.apollo.ApolloConfigBootstrapConfiguration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.springframework.cloud.aihuishou.apollo.autoconfigure.ApolloConfigAutoConfiguration,\
-org.springframework.cloud.aihuishou.apollo.autoconfigure.ApolloConfigEndpointAutoConfiguration
+org.framework.cloud.apollo.autoconfigure.ApolloConfigAutoConfiguration,\
+org.framework.cloud.apollo.autoconfigure.ApolloConfigEndpointAutoConfiguration
